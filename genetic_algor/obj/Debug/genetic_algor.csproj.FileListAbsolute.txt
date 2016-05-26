@@ -1,0 +1,9 @@
+c:\users\игорь\documents\visual studio 2015\Projects\genetic_algor\genetic_algor\bin\Debug\genetic_algor.exe.config
+c:\users\игорь\documents\visual studio 2015\Projects\genetic_algor\genetic_algor\obj\Debug\genetic_algor.csprojResolveAssemblyReference.cache
+c:\users\игорь\documents\visual studio 2015\Projects\genetic_algor\genetic_algor\obj\Debug\genetic_algor.Form1.resources
+c:\users\игорь\documents\visual studio 2015\Projects\genetic_algor\genetic_algor\obj\Debug\genetic_algor.Properties.Resources.resources
+c:\users\игорь\documents\visual studio 2015\Projects\genetic_algor\genetic_algor\obj\Debug\genetic_algor.csproj.GenerateResource.Cache
+c:\users\игорь\documents\visual studio 2015\Projects\genetic_algor\genetic_algor\bin\Debug\genetic_algor.exe
+c:\users\игорь\documents\visual studio 2015\Projects\genetic_algor\genetic_algor\bin\Debug\genetic_algor.pdb
+c:\users\игорь\documents\visual studio 2015\Projects\genetic_algor\genetic_algor\obj\Debug\genetic_algor.exe
+c:\users\игорь\documents\visual studio 2015\Projects\genetic_algor\genetic_algor\obj\Debug\genetic_algor.pdb
