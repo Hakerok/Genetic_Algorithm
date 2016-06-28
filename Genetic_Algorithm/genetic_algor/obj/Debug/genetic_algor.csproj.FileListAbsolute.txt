@@ -7,3 +7,12 @@ c:\users\игорь\documents\visual studio 2015\Projects\genetic_algor\genetic_
 c:\users\игорь\documents\visual studio 2015\Projects\genetic_algor\genetic_algor\bin\Debug\genetic_algor.pdb
 c:\users\игорь\documents\visual studio 2015\Projects\genetic_algor\genetic_algor\obj\Debug\genetic_algor.exe
 c:\users\игорь\documents\visual studio 2015\Projects\genetic_algor\genetic_algor\obj\Debug\genetic_algor.pdb
+C:\Users\Игорь\Documents\GitHub\Genetic_Algorithm\Genetic_Algorithm\genetic_algor\bin\Debug\genetic_algor.exe.config
+C:\Users\Игорь\Documents\GitHub\Genetic_Algorithm\Genetic_Algorithm\genetic_algor\obj\Debug\genetic_algor.exe
+C:\Users\Игорь\Documents\GitHub\Genetic_Algorithm\Genetic_Algorithm\genetic_algor\obj\Debug\genetic_algor.pdb
+C:\Users\Игорь\Documents\GitHub\Genetic_Algorithm\Genetic_Algorithm\genetic_algor\bin\Debug\genetic_algor.exe
+C:\Users\Игорь\Documents\GitHub\Genetic_Algorithm\Genetic_Algorithm\genetic_algor\bin\Debug\genetic_algor.pdb
+C:\Users\Игорь\Documents\GitHub\Genetic_Algorithm\Genetic_Algorithm\genetic_algor\obj\Debug\genetic_algor.csprojResolveAssemblyReference.cache
+C:\Users\Игорь\Documents\GitHub\Genetic_Algorithm\Genetic_Algorithm\genetic_algor\obj\Debug\genetic_algor.Form1.resources
+C:\Users\Игорь\Documents\GitHub\Genetic_Algorithm\Genetic_Algorithm\genetic_algor\obj\Debug\genetic_algor.Properties.Resources.resources
+C:\Users\Игорь\Documents\GitHub\Genetic_Algorithm\Genetic_Algorithm\genetic_algor\obj\Debug\genetic_algor.csproj.GenerateResource.Cache

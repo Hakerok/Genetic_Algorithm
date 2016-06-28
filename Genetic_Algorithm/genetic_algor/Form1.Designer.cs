@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.txt_result = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.average_max = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -55,27 +55,27 @@
             this.button1.TabIndex = 2;
             this.button1.Text = "Рассчитать";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.Button1Click);
             // 
             // average_max
             // 
-            chartArea1.Name = "ChartArea1";
-            this.average_max.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.average_max.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            this.average_max.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.average_max.Legends.Add(legend2);
             this.average_max.Location = new System.Drawing.Point(7, 12);
             this.average_max.Name = "average_max";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series1.Legend = "Legend1";
-            series1.Name = "Average";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series2.Legend = "Legend1";
-            series2.Name = "Max";
-            this.average_max.Series.Add(series1);
-            this.average_max.Series.Add(series2);
-            this.average_max.Size = new System.Drawing.Size(480, 210);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series3.Legend = "Legend1";
+            series3.Name = "Average";
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series4.Legend = "Legend1";
+            series4.Name = "Max";
+            this.average_max.Series.Add(series3);
+            this.average_max.Series.Add(series4);
+            this.average_max.Size = new System.Drawing.Size(625, 210);
             this.average_max.TabIndex = 6;
             this.average_max.Text = "chart1";
             // 
@@ -90,27 +90,27 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(411, 229);
+            this.button2.Location = new System.Drawing.Point(557, 228);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 12;
             this.button2.Text = "Выход";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.Button2Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(499, 275);
+            this.ClientSize = new System.Drawing.Size(644, 275);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.average_max);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txt_result);
             this.Name = "Form1";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Text = "Генетический алгоритм";
+            this.Load += new System.EventHandler(this.Form1Load);
             ((System.ComponentModel.ISupportInitialize)(this.average_max)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

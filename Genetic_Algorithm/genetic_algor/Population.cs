@@ -4,32 +4,32 @@ using System.Linq;
 
 namespace genetic_algor
 {
-    class population
+    class Population
         {
-            private List<Individual> _individ;
-            private  int _individCount;
-            private  Random _random;
+            private List<Individual> individ;
+            private readonly int individCount;
+            private readonly Random random;
 
-            public static List<int> key;
+            public static List<int> Key;
 
-            public population()
+            public Population()
             {
-                _individ = new List<Individual>();
-                _random = new Random();
+                individ = new List<Individual>();
+                random = new Random();
 
-                _individCount = 100;
+                individCount = 100;
 
                 List<int> listparams = new List<int>();
 
 
-                for (int i1 = 0; i1 < _individCount; i1++)
+                for (int i1 = 0; i1 < individCount; i1++)
                 {
                     for (int i2 = 0; i2 < 6; i2++)
                     {
-                        listparams.Add(_random.Next(0, 101));
+                        listparams.Add(random.Next(0, 101));
                     }
 
-                    _individ.Add(new Individual(listparams, _random));
+                    individ.Add(new Individual(listparams, random));
 
                     listparams.Clear(); // Очистить список параметров
                 }
@@ -37,61 +37,56 @@ namespace genetic_algor
 
             private void Selection()
             {
-                _individ = _individ.OrderByDescending(o => o.get_adeptness()).ToList();
+                individ = individ.OrderByDescending(o => o.GetAdeptness()).ToList();
 
-                _individ.RemoveRange
+                individ.RemoveRange
                     (
-                        (int)Math.Round((double)_individ.Count / 2),
-                        (int)Math.Round((double)_individ.Count / 2)
+                        (int)Math.Round((double)individ.Count / 2),
+                        (int)Math.Round((double)individ.Count / 2)
                     );
 
             }
-            private void start_crossing()
+            private void StartCrossing()
             {
-                for (int i1 = 0; i1 < Math.Round((double)_individCount); i1++)
+                for (int i1 = 0; i1 < Math.Round((double)individCount); i1++)
                 {
                     int momSelector;
                     int dadSelector;
                     do
                     {
-                        dadSelector = _random.Next(0, _individCount);
-                        momSelector = _random.Next(0, _individCount);
+                        dadSelector = random.Next(0, individCount);
+                        momSelector = random.Next(0, individCount);
                     }
                     while (dadSelector == momSelector);
-                    _individ.Add(_individ[dadSelector].Crossing(_individ[momSelector]));
+                    individ.Add(individ[dadSelector].Crossing(individ[momSelector]));
                 }
             }
-            private void start_mutation()
+            private void StartMutation()
             {
-                for (var i1 = 0; i1 < Math.Round((double)_individCount / 10); i1++)
+                for (var i1 = 0; i1 < Math.Round((double)individCount / 10); i1++)
                 {
-                    var individSelector = _random.Next(0, _individCount * 2);
+                    var individSelector = random.Next(0, individCount * 2);
 
-                    _individ[individSelector].Mutation();
+                    individ[individSelector].Mutation();
                 }
             }
-            public void make_cycle()
+            public void MakeCycle()
             {
-                start_crossing();
-                start_mutation();
+                StartCrossing();
+                StartMutation();
                 Selection();
             }
-            public Individual get_best_individual()
+            public Individual GetBestIndividual()
             {
-                return _individ.First();
+                return individ.First();
 
 
             }
-        public int get_avg_weight()
+        public int GetAvgWeight()
         {
-            int i__sum_weight = 0; // Сумма весов п популяции
+            int iSumWeight = individ.Sum(indItem => indItem.GetAdeptness()); // Сумма весов п популяции
 
-            foreach (Individual ind__item in _individ)
-            {
-                i__sum_weight += ind__item.get_adeptness(); // Прибавить вес
-            }
-
-            return (int)Math.Round(i__sum_weight / (double)_individCount); // Вернуть значение среднего веса
+            return (int)Math.Round(iSumWeight / (double)individCount); // Вернуть значение среднего веса
         }
     }
 
@@ -99,57 +94,67 @@ namespace genetic_algor
 
         public class Individual
         {
-            private int _adept;
-            private  List<int> _param;
-            private  Random _indivrandom;
-            int _a = 2;
-            int _b = 3;
-            int _c = 4;
+            private int adept;
+            private readonly List<int> param;
+            private readonly Random indivrandom;
 
+            private const int A = 2;
+            private const int B = 3;
+            private const int C = 4;
 
             public Individual(List<int> iParam, Random inputRandom)
             {
-                _param = new List<int>();
+                param = new List<int>();
 
 
                 foreach (var item in iParam)
                 {
-                    _param.Add(item);
+                    param.Add(item);
                 }
 
-                _indivrandom = inputRandom;
+                indivrandom = inputRandom;
 
-                calculate_adeptness();
+                CalculateAdeptness();
             }
             public void Mutation()
             {
-                for (int i1 = 0; i1 < _indivrandom.Next(1, 4); i1++)
+                for (int i1 = 0; i1 < indivrandom.Next(1, 4); i1++)
                 {
-                    var mutationIndex = _indivrandom.Next(0, 4);
-
-
+                    
+                    var mutationIndex = indivrandom.Next(0, 4);
+                //
+                // Изменяем значение выбранного параметра
+                // 
+                if (param[mutationIndex] == 0)
+                {
+                    param[mutationIndex] = 1; // Изменить на 1
                 }
-
-                calculate_adeptness();
+                else
+                {
+                    param[mutationIndex] = 0; // Изменить на 0
+                }
+            }
+       
+                CalculateAdeptness();
             }
             public Individual Crossing(Individual indSecondParent)
             {
                 List<int> inputParams = new List<int>();
-                inputParams.AddRange(_param.GetRange(0, 2));
-                inputParams.AddRange(indSecondParent._param.GetRange(2, 2));
-                return new Individual(inputParams, _indivrandom);
+                inputParams.AddRange(param.GetRange(0, 2));
+                inputParams.AddRange(indSecondParent.param.GetRange(2, 2));
+                return new Individual(inputParams, indivrandom);
             }
-            public int get_adeptness()
+            public int GetAdeptness()
             {
-                return _adept;
+                return adept;
             }
-            private void calculate_adeptness()
+            private void CalculateAdeptness()
             {
-                _adept = _param[0] + _a * _param[1] + _b * _param[2] + _c * _param[3];
+                adept = param[0] + A * param[1] + B * param[2] + C * param[3];
             }
             public List<int> GetParams()
             {
-                return _param;
+                return param;
             }
         }
     }

@@ -1,15 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace genetic_algor
 {
+    using System.Linq;
+
     public partial class Form1 : Form
     {
         public Form1()
@@ -17,56 +13,42 @@ namespace genetic_algor
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Form1Load(object sender, EventArgs e)
         {
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1Click(object sender, EventArgs e)
         {
             foreach (var series in average_max.Series)
             {
                 series.Points.Clear();
             }
-            List<int> key = new List<int>();
-            string result = "";
+            List<int> key = new List<int> { 5, 6, 8, 10 };
 
-            key.Add(5);
-            key.Add(6);
-            key.Add(8);
-            key.Add(10);
 
-            string skey = "";
+            key.Aggregate("", (current, item) => current + item.ToString());
 
-            foreach (int item in key)
-            {
-                skey += item.ToString();
-            }
-
-            population poppopulation = new population();
+            Population poppopulation = new Population();
 
             for (int i1 = 0; i1 < 15; i1++)
             {
-                average_max.Series["Average"].Points.AddXY(i1, poppopulation.get_avg_weight());
-                average_max.Series["Max"].Points.AddXY(i1, poppopulation.get_best_individual().get_adeptness());
-                poppopulation.make_cycle();
+                average_max.Series["Average"].Points.AddXY(i1, poppopulation.GetAvgWeight());
+                average_max.Series["Max"].Points.AddXY(i1, poppopulation.GetBestIndividual().GetAdeptness());
+                poppopulation.MakeCycle();
                 
             }
 
-  
-            foreach (int item in poppopulation.get_best_individual().GetParams())
-            {
-                result += item.ToString();
-            }
+            string result = poppopulation.GetBestIndividual().GetParams().Aggregate("", (current, item) => current + item.ToString());
 
             txt_result.Text = result;
 
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
     }
 }
